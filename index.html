@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecudyveng | Soluciones de Medición Ambiental</title>
+    <style>
+        /* Variables de colores de la empresa */
+        :root {
+            --primary-color: #2E7D32; /* Verde bosque */
+            --secondary-color: #00695C; /* Verde azulado */
+            --accent-color: #81C784; /* Verde claro */
+            --text-color: #333333;
+            --bg-light: #F1F8E9;
+        }
+
+        /* Configuración base y efecto cascada (smooth scroll) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth; /* ¡El secreto del efecto cascada! */
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+
+        /* Encabezado fijo (Sticky Header) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+        .contacto-info {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .contacto-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex: 1;
+            min-width: 250px;
+            transition: background 0.3s;
+        }
+
+        .contacto-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contacto-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contacto-item p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Estilos generales de las secciones */
+        section {
+            min-height: 100vh; /* Cada sección ocupa al menos toda la pantalla */
+            padding: 100px 50px 50px 50px; /* Padding superior para que el header no tape el contenido */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--primary-color); }
+        h2 { font-size: 2.5rem; margin-bottom: 30px; color: var(--secondary-color); }
+        p { font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin-bottom: 20px; }
+
+        /* Secciones individuales */
+        #inicio {
+            background: linear-gradient(rgba(241, 248, 233, 0.9), rgba(241, 248, 233, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+        }
+
+        #servicios {
+            background-color: #ffffff;
+        }
+
+        .servicios-grid {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 { color: var(--primary-color); margin-bottom: 15px; }
+
+        #monitoreo {
+            background-color: var(--bg-light);
+        }
+
+        .dashboard-mockup {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .sensor-data {
+            text-align: center;
+        }
+
+        .sensor-data span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        #contacto {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        #contacto h2, #contacto p {
+            color: white;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background-color: #ffffff; }
+
+        footer {
+            background-color: #004D40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <header>
+        <a href="#inicio" class="logo">🌿 Ecudyveng</a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección: Inicio -->
+    <section id="inicio">
+        <h1>Precisión para un Mundo Sostenible</h1>
+        <p>En <strong>Ecudyveng</strong> capturamos los datos que importan. Implementamos redes de sensores IoT de última generación para medir la calidad del aire, ruido urbano y parámetros hídricos en tiempo real.</p>
+        <a href="#servicios" class="btn">Descubrir más</a>
+    </section>
+
+    <!-- Sección: Servicios -->
+    <section id="servicios">
+        <h2>Nuestros Servicios de Medición</h2>
+        <p>Desplegamos infraestructura tecnológica que permite a municipios, empresas e industrias tomar decisiones basadas en datos ambientales precisos.</p>
+        
+        <div class="servicios-grid">
+            <div class="card">
+                <h3>Calidad del Aire</h3>
+                <p>Medición de PM2.5, PM10, CO2, NO2 y Ozono con estaciones meteorológicas compactas.</p>
+            </div>
+            <div class="card">
+                <h3>Monitoreo Acústico</h3>
+                <p>Mapas de ruido en tiempo real para zonas urbanas e industriales con alertas de decibelios (dB).</p>
+            </div>
+            <div class="card">
+                <h3>Calidad del Agua</h3>
+                <p>Sensores sumergibles para medir pH, turbidez, oxígeno disuelto y conductividad.</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Sección: Contacto -->
+    <section id="contacto">
+        <h2>Únete a la revolución ambiental</h2>
+        <p>¿Necesitas implementar una red de monitoreo para tu empresa o ciudad? Hablemos sobre tu proyecto. En Ecudyveng diseñamos soluciones a la medida de tu entorno.</p>
+        
+        <div class="contacto-info">
+            <div class="contacto-item">
+                <h3>📱 Celulares</h3>
+                <p>+593____________</p>
+                <p>+593____________</p>
+            </div>
+            
+            <div class="contacto-item">
+                <h3>☎️ Teléfono Fijo</h3>
+                <p>(02)_________________</p>
+            </div>
+            
+            <div class="contacto-item">
+                <h3>✉️ Correo Electrónico</h3>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+
+        <a href="mailto:" class="btn">Solicitar Cotización</a>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Ecudyveng - Soluciones de Medición Ambiental. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
