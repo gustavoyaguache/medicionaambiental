@@ -85,20 +85,35 @@
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
             display: flex;
-            align-items: center;
-            gap: 1px;
-        line-height: 1;
+            align-items: center; 
+            text-decoration: none;
+            color: #0c5e12; 
         }
         .logo img{
             height: 60px;
             width: auto;
             display: block;
         }
+        .logo-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Estilos del texto principal */
+.texto-principal {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+/* Estilos del subtexto */
+.subtexto {
+  font-size: 18px;
+  color: #0c5e12; /* Un color más claro para que resalte menos */
+  line-height: 1.2;
+}
 
         nav ul {
             list-style: none;
@@ -226,7 +241,13 @@
 
     <!-- Menú de Navegación -->
     <header>
-        <a href="#inicio" class="logo"><img src="./logos/logo.jpg" alt="Logo ECUDYVENG"> ECUDYVENG</a>
+       <a href="#inicio" class="logo">
+  <img src="./logos/logo.jpg" alt="Logo ECUDYVENG">
+  <div class="logo-texto">
+    <span class="texto-principal">ECUDYVENG CIA LTDA</span>
+    <span class="subtexto">Camacho Cifuentes Ingenieria Total</span>
+  </div>
+</a>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -306,3 +327,5 @@
 
 </body>
 </html>
+
+
